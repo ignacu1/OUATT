@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerMovementScript : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     public float speed;
     private float moveInput;
     public float jumpForce = 10f;
@@ -14,18 +14,16 @@ public class playerMovementScript : MonoBehaviour
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
-   
 
+    private Animator anim;
 
-
+    private SpriteRenderer spriteRenderer;
     
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
-    
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,6 +41,22 @@ public class playerMovementScript : MonoBehaviour
     {
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(speed * moveInput, rb.velocity.y);
+
+        if(moveInput != 0f)
+        {
+            anim.SetBool("IsWalking", true);
+        } else
+        {
+            anim.SetBool("IsWalking", false);
+        }
+
+        if(moveInput > 0)
+        {
+            spriteRenderer.flipX = false;
+        } else if(moveInput < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
 
