@@ -6,7 +6,10 @@ public class RaycastScript : MonoBehaviour
 {
 
     public Transform raycastPos;
+    public BlockScript BlockScript;
     //public float distance;
+    public GameObject fire;
+    public GameObject block;
 
     
 
@@ -27,12 +30,15 @@ public class RaycastScript : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, raycastPos.TransformDirection(Vector2.down), 10f);
         
-        if(hit.collider.tag == "block")
+        if(hit.collider.tag == "block" && Input.GetButtonDown("Fire1"))
         {
-
+            
             Debug.Log("test");
             Debug.DrawRay(raycastPos.position, raycastPos.TransformDirection(Vector2.down) * 10f);
-            hit.transform.GetComponent<SpriteRenderer>().color = Color.blue;
+            hit.transform.GetComponent<BlockScript>().PutOutTheFire();
+
+        } else {
+            
         }
 
 
