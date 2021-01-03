@@ -43,11 +43,6 @@ public class BlockScript : MonoBehaviour
             }
             
         }
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            PutOutTheFire();
-        }
     }
 
     public void SetOnFire()
@@ -63,7 +58,7 @@ public class BlockScript : MonoBehaviour
         isOnFire = false;
         Invoke("deleteWasOnFire", 1f);
         GameObject  ChildGameObject = transform.GetChild(0).gameObject;
-        
+
         if(ChildGameObject != null)
         {
             Destroy(ChildGameObject);

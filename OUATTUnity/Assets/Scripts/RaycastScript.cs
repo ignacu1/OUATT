@@ -6,10 +6,7 @@ public class RaycastScript : MonoBehaviour
 {
 
     public Transform raycastPos;
-    public BlockScript BlockScript;
-    //public float distance;
-    public GameObject fire;
-    public GameObject block;
+    public GameObject waterParticles;
 
     
 
@@ -36,6 +33,7 @@ public class RaycastScript : MonoBehaviour
             Debug.Log("test");
             Debug.DrawRay(raycastPos.position, raycastPos.TransformDirection(Vector2.down) * 10f);
             hit.transform.GetComponent<BlockScript>().PutOutTheFire();
+            Instantiate(waterParticles,(Vector3)hit.point, Quaternion.Euler(0, 0, 0));
 
         } else {
             
