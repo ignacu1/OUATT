@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class raycastScript : MonoBehaviour
+public class RaycastScript : MonoBehaviour
 {
 
     public Transform raycastPos;
@@ -27,7 +27,9 @@ public class raycastScript : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, raycastPos.TransformDirection(Vector2.down), 10f);
         
-        if(hit){
+        if(hit.collider.tag == "block")
+        {
+
             Debug.Log("test");
             Debug.DrawRay(raycastPos.position, raycastPos.TransformDirection(Vector2.down) * 10f);
             hit.transform.GetComponent<SpriteRenderer>().color = Color.blue;
