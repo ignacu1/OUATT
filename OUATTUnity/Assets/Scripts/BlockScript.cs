@@ -54,15 +54,15 @@ public class BlockScript : MonoBehaviour
 
     public void PutOutTheFire()
     {
+        if(isOnFire == true)
+        {
         isGoingToBeOnFire = false;
         isOnFire = false;
         Invoke("deleteWasOnFire", 1f);
         GameObject  ChildGameObject = transform.GetChild(0).gameObject;
-
-        if(ChildGameObject != null)
-        {
-            Destroy(ChildGameObject);
+        Destroy(ChildGameObject);
         }
+        
     }
 
     private void deleteWasOnFire()
