@@ -7790,54 +7790,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 739f6382ee12fb04d90071cb61735f29, type: 3}
---- !u!1 &1345279511 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 898870673989450420, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
-  m_PrefabInstance: {fileID: 4661150723644350436}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1345279512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345279511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34ea2069bafb5142ba9edeb04edd216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 7
-  speed: 3
-  playerPos: {fileID: 1456415459}
-  RaycastScript: {fileID: 1456415461}
-  maxHealthEnemy: 20
---- !u!61 &1345279515
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345279511}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1379778235
 GameObject:
   m_ObjectHideFlags: 0
@@ -12913,6 +12865,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1727670488500529253, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3524579039588973774, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -12965,5 +12921,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871626439817026273, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 1456415459}
+    - target: {fileID: 8871626439817026273, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
+      propertyPath: RaycastScript
+      value: 
+      objectReference: {fileID: 1456415461}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
