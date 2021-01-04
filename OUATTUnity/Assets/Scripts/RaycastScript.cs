@@ -12,6 +12,8 @@ public class RaycastScript : MonoBehaviour
 
     public float radius;
 
+    
+
     void Start()
     {
         
@@ -40,6 +42,11 @@ public class RaycastScript : MonoBehaviour
         } else 
         {
             
+        }
+
+        if(hit.collider.tag == "enemy" && Input.GetButtonDown("Fire1")){
+            hit.collider.gameObject.GetComponent<enemyScript>().TakeDamage(20);
+            Debug.Log("test");
         }
     }
 }
