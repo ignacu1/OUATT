@@ -12,9 +12,14 @@ public class BlockScript : MonoBehaviour
 
     public bool wasOnFire;
 
+    public bool isGoingToSetOnFireAtStart;
+
     void Start()
     {
-        
+        if(isGoingToSetOnFireAtStart == true)
+        {
+            SetOnFire();
+        }
     }
 
     // Update is called once per frame
@@ -56,11 +61,12 @@ public class BlockScript : MonoBehaviour
     {
         if(isOnFire == true)
         {
-        isGoingToBeOnFire = false;
-        isOnFire = false;
-        Invoke("deleteWasOnFire", 1f);
-        GameObject  ChildGameObject = transform.GetChild(0).gameObject;
-        Destroy(ChildGameObject);
+            GameObject  ChildGameObject = transform.GetChild(0).gameObject;
+            Destroy(ChildGameObject);
+            isGoingToBeOnFire = false;
+            isOnFire = false;
+            wasOnFire = true;
+            Invoke("deleteWasOnFire", 2f);
         }
         
     }

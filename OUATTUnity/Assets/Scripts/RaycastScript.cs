@@ -10,6 +10,8 @@ public class RaycastScript : MonoBehaviour
 
     public float reach;
 
+    public float radius;
+
     void Start()
     {
         
@@ -25,8 +27,15 @@ public class RaycastScript : MonoBehaviour
         
         if(hit.collider.tag == "block" && Input.GetButtonDown("Fire1"))
         {
-            hit.transform.GetComponent<BlockScript>().PutOutTheFire();
-            Instantiate(waterParticles,(Vector3)hit.point, Quaternion.Euler(0, 0, 0));
+            Collider2D[] blocksHit = Physics2D.OverlapCircleAll(hit.point, radius, LayerMask.GetMask("Block"));
+            foreach(Collider2D block in blocksHit)
+            {
+                if(block.GetComponent<BlockScript>().isOnFire == true)
+                {
+                    Instantiate(waterParticles, block.transform.position, Quaternion.Euler(0, 0, 0));
+                }
+                block.GetComponent<BlockScript>().PutOutTheFire();
+            }
 
         } else 
         {
