@@ -46,7 +46,7 @@ public class RaycastScript : MonoBehaviour
 
         if(hit.collider.tag == "enemy" && Input.GetButtonDown("Fire1"))
         {
-            hit.collider.gameObject.GetComponent<enemyScript>().TakeDamage(20);
+            hit.collider.gameObject.GetComponent<EnemyScript>().TakeDamage(20);
             Instantiate(waterParticles, hit.transform.position, Quaternion.Euler(0, 0, 0));
             Debug.Log("test");
         }
