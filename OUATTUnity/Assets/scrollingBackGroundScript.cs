@@ -24,7 +24,7 @@ public class scrollingBackGroundScript : MonoBehaviour
             ResetBackground1();
         }
 
-        if(Vector3.Distance(transform.position, point2.position) < 15 && ResetedBackground1 == true){
+        if(Vector3.Distance(transform.position, point2.position) < 5 && ResetedBackground1 == true){
             ResetBackground2();
         }
     }

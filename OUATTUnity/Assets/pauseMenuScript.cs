@@ -9,6 +9,7 @@ public class pauseMenuScript : MonoBehaviour
     public GameObject menuUI;
     public GameObject pasueMenuUI;
     public GameObject healthText;
+    public GameObject startMenuUI;
     
     
     public bool isPaused;
@@ -44,7 +45,7 @@ public class pauseMenuScript : MonoBehaviour
 
     public void GoToMenu(){
         pasueMenuUI.SetActive(false);
-        menuUI.SetActive(true);
+        startMenuUI.SetActive(true);
         healthText.SetActive(false);
     }
 
