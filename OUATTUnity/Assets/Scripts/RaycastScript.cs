@@ -6,13 +6,14 @@ public class RaycastScript : MonoBehaviour
 {
 
     public Transform raycastPos;
+    public Transform raycastTip;
     public GameObject waterParticles;
 
     public float reach;
 
     public float radius;
 
-    
+    public Transform circle;
 
     void Start()
     {
@@ -22,10 +23,16 @@ public class RaycastScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = new Ray(raycastPos.position, raycastPos.up);
-
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, raycastPos.TransformDirection(Vector2.down), reach);
         Debug.DrawRay(raycastPos.position, raycastPos.TransformDirection(Vector2.down) * reach);
+
+        if(hit)
+        {
+            circle.position = (Vector3)hit.point;
+        } else 
+        {
+            circle.position = raycastTip.position;
+        }
         
         if(hit.collider.tag == "block" && Input.GetButtonDown("Fire1"))
         {
@@ -39,9 +46,6 @@ public class RaycastScript : MonoBehaviour
                 block.GetComponent<BlockScript>().PutOutTheFire();
             }
 
-        } else 
-        {
-            
         }
 
         if(hit.collider.tag == "enemy" && Input.GetButtonDown("Fire1"))
