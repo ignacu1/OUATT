@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class startMenuScript : MonoBehaviour
@@ -12,6 +13,7 @@ public class startMenuScript : MonoBehaviour
 
     public GameObject creatorsUI;
     public pauseMenuScript pauseMenuScript;
+    public GameObject healthText;
     
 
     public bool gameIsPaused;
@@ -34,12 +36,13 @@ public class startMenuScript : MonoBehaviour
         
         Time.timeScale = 1f;
         pauseMenuScript.isPaused = false;
-
+        healthText.SetActive(true);
     }
 
     public void Menu(){
         startMenuUI.SetActive(false);
         menuUI.SetActive(true);
+        healthText.SetActive(false);
         
     }
 
@@ -51,6 +54,7 @@ public class startMenuScript : MonoBehaviour
     public void creators(){
         startMenuUI.SetActive(false);
         creatorsUI.SetActive(true);
+        healthText.SetActive(false);
         
     }
 
@@ -64,4 +68,6 @@ public class startMenuScript : MonoBehaviour
         creatorsUI.SetActive(false);
         startMenuUI.SetActive(true);
     }
+
+
 }
