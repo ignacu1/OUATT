@@ -19,7 +19,14 @@ public class BlockScript : MonoBehaviour
         if(isGoingToSetOnFireAtStart == true)
         {
             SetOnFire();
+            WinCheckerScript.AmmountOfGoingToBurnBlocks += 1;
         }
+    }
+
+    private void Awake() 
+    {
+        WinCheckerScript.AmmountOfBlocks += 1;
+        WinCheckerScript.AmmountOfNotBurningBlocks += 1;
     }
 
     // Update is called once per frame
@@ -39,6 +46,7 @@ public class BlockScript : MonoBehaviour
                             block.GetComponent<BlockScript>().Invoke("SetOnFire", 1f);
                             block.GetComponent<BlockScript>().isGoingToBeOnFire = true;
                             block.GetComponent<BlockScript>().wasOnFire = true;
+                            WinCheckerScript.AmmountOfGoingToBurnBlocks += 1;
                         }
 
                     }
@@ -52,6 +60,8 @@ public class BlockScript : MonoBehaviour
 
     public void SetOnFire()
     {
+        WinCheckerScript.AmmountOfNotBurningBlocks -= 1;
+        WinCheckerScript.AmmountOfBurningBlocks += 1;
         GameObject myFire = Instantiate(FirePrefab, transform.position, Quaternion.Euler(0, 0, 0));
         myFire.transform.parent = gameObject.transform;
         isOnFire = true;
@@ -61,12 +71,15 @@ public class BlockScript : MonoBehaviour
     {
         if(isOnFire == true)
         {
+            WinCheckerScript.AmmountOfNotBurningBlocks += 1;
+            WinCheckerScript.AmmountOfBurningBlocks -= 1;
             GameObject  ChildGameObject = transform.GetChild(0).gameObject;
             Destroy(ChildGameObject);
             isGoingToBeOnFire = false;
             isOnFire = false;
             wasOnFire = true;
             Invoke("deleteWasOnFire", 2f);
+            WinCheckerScript.AmmountOfGoingToBurnBlocks -= 1;
         }
         
     }
