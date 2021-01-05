@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class pauseMenuScript : MonoBehaviour
 {
     public GameObject menuUI;
     public GameObject pasueMenuUI;
+    public GameObject healthText;
     
     
     public bool isPaused;
@@ -43,6 +45,7 @@ public class pauseMenuScript : MonoBehaviour
     public void GoToMenu(){
         pasueMenuUI.SetActive(false);
         menuUI.SetActive(true);
+        healthText.SetActive(false);
     }
 
     public void backFromMenu(){

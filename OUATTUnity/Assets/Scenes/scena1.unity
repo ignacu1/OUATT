@@ -31792,6 +31792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuUI: {fileID: 1809923191}
   pasueMenuUI: {fileID: 1294839949}
+  healthText: {fileID: 1284146702}
   isPaused: 0
 --- !u!114 &838198938
 MonoBehaviour:
@@ -47610,7 +47611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1284146703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58472,7 +58473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1557955916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -83152,7 +83153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871626439817026273, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
       propertyPath: speed
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8871626439817026273, guid: f3cfe0c95b7000f42879c6a2f309a15e, type: 3}
       propertyPath: playerPos
