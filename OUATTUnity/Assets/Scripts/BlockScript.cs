@@ -23,10 +23,22 @@ public class BlockScript : MonoBehaviour
         }
     }
 
+
     private void Awake() 
     {
         WinCheckerScript.AmmountOfBlocks += 1;
         WinCheckerScript.AmmountOfNotBurningBlocks += 1;
+
+        int rand = Random.Range(1, 3);
+        if(rand == 1)
+        {
+            isGoingToSetOnFireAtStart = true;
+        }
+
+        if(rand == 2)
+        {
+            isGoingToSetOnFireAtStart = false;
+        }
     }
 
     // Update is called once per frame
@@ -80,6 +92,7 @@ public class BlockScript : MonoBehaviour
             wasOnFire = true;
             Invoke("deleteWasOnFire", 2f);
             WinCheckerScript.AmmountOfGoingToBurnBlocks -= 1;
+            FindObjectOfType<AudioManagerScript>().Play("WaterSplash");
         }
         
     }

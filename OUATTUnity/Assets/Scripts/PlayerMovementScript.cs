@@ -34,6 +34,7 @@ public class PlayerMovementScript : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true){
             rb.velocity = Vector2.up * jumpForce;
+            FindObjectOfType<AudioManagerScript>().Play("Jump");
         }
     }
 

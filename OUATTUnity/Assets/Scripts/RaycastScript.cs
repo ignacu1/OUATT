@@ -37,6 +37,7 @@ public class RaycastScript : MonoBehaviour
         if(hit.collider.tag == "block" && Input.GetButtonDown("Fire1"))
         {
             Collider2D[] blocksHit = Physics2D.OverlapCircleAll(hit.point, radius, LayerMask.GetMask("Block"));
+
             foreach(Collider2D block in blocksHit)
             {
                 if(block.GetComponent<BlockScript>().isOnFire == true)

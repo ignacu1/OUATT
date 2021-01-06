@@ -11,11 +11,15 @@ public class PlayerHealth : MonoBehaviour
     public Text healthText;
     public GameObject playerHand;
 
+    private float audioTimer;
+    public float audioTime;
+
     
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        audioTimer = audioTime;
     }
 
     // Update is called once per frame
@@ -32,7 +36,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamagePlayer(float damage){
+    void TakeDamagePlayer(float damage)
+    {
+        if(audioTimer <= 0)
+        {
+            FindObjectOfType<AudioManagerScript>().Play("Hurt");
+            audioTimer = audioTime;
+        } else if(audioTimer > 0)
+        {
+            audioTimer -= Time.deltaTime;
+        }
         currentHealth -= damage * Time.deltaTime;
     }
 

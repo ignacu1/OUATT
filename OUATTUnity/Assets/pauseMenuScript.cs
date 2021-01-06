@@ -44,9 +44,7 @@ public class pauseMenuScript : MonoBehaviour
     }
 
     public void GoToMenu(){
-        pasueMenuUI.SetActive(false);
-        startMenuUI.SetActive(true);
-        healthText.SetActive(false);
+        SceneManager.LoadScene("scena1");
     }
 
     public void backFromMenu(){

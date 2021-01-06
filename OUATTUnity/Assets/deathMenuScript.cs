@@ -25,7 +25,7 @@ public class deathMenuScript : MonoBehaviour
     }
 
     public void Retry(){
-        SceneManager.LoadScene("scena1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         startMenuUI.SetActive(false);
         
     }
