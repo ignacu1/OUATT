@@ -9,8 +9,10 @@ public class WinCheckerScript : MonoBehaviour
     public static int AmmountOfNotBurningBlocks;
     public static int AmmountOfBurningBlocks;
     public static int AmmountOfGoingToBurnBlocks;
+    public GameObject winScreen;
 
     private bool won;
+    
 
 
     void Start()
@@ -24,7 +26,7 @@ public class WinCheckerScript : MonoBehaviour
         Debug.Log(AmmountOfBlocks + ", " + AmmountOfNotBurningBlocks + ", " + AmmountOfBurningBlocks + ", " + AmmountOfGoingToBurnBlocks);
         if(AmmountOfBurningBlocks == 0 && AmmountOfGoingToBurnBlocks <= 0 && won == false)
         {
-            Win();
+            Invoke("Win", 1.5f);
         }
     }
 
@@ -32,5 +34,9 @@ public class WinCheckerScript : MonoBehaviour
     {
         Debug.Log("Win");
         won = true;
+        winScreen.SetActive(true);
+
     }
+
+
 }
