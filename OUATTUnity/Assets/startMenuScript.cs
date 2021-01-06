@@ -15,6 +15,8 @@ public class startMenuScript : MonoBehaviour
     public GameObject creatorsUI;
     public pauseMenuScript pauseMenuScript;
     public GameObject healthText;
+
+    public GameObject storyScreen;
     
 
     public bool gameIsPaused;
@@ -35,9 +37,10 @@ public class startMenuScript : MonoBehaviour
         
         startMenuUI.SetActive(false);
         
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         pauseMenuScript.isPaused = false;
         healthText.SetActive(true);
+        storyScreen.SetActive(true);
         
 
     }
@@ -70,6 +73,11 @@ public class startMenuScript : MonoBehaviour
     public void backFromCreators(){
         creatorsUI.SetActive(false);
         startMenuUI.SetActive(true);
+    }
+
+    public void story(){
+        Time.timeScale = 1f;
+        storyScreen.SetActive(false);
     }
 
 
