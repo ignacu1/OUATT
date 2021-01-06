@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
             
         }
 
-        if(currentHealth >= 0 && currentHealth < 100){
+        if(currentHealth >= 0){
             healthText.text = "HEALTH: " + currentHealth.ToString();
         }
     }
