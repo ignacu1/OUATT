@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
             
         }
 
-        if(currentHealth >= 0){
+        if(currentHealth >= 0 && currentHealth < 100){
             healthText.text = "HEALTH: " + currentHealth.ToString();
         }
     }
@@ -58,5 +58,15 @@ public class PlayerHealth : MonoBehaviour
         if(collisionInfo.collider.tag == "enemy"){
             TakeDamagePlayer(50);
         }
+
+        if(collisionInfo.collider.tag == "bigEnemy"){
+            TakeDamagePlayer(60);
+        }
+
+
     }
+
+
+
+    
 }

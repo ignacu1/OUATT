@@ -55,5 +55,12 @@ public class RaycastScript : MonoBehaviour
             Instantiate(waterParticles, hit.transform.position, Quaternion.Euler(0, 0, 0));
             Debug.Log("test");
         }
+
+        if(hit.collider.tag == "bigEnemy" && Input.GetButtonDown("Fire1"))
+        {
+            hit.collider.gameObject.GetComponent<BigEnemyScript>().TakeDamage(20);
+            Instantiate(waterParticles, hit.transform.position, Quaternion.Euler(0, 0, 0));
+            Debug.Log("test");
+        }
     }
 }
