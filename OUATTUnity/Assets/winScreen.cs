@@ -34,5 +34,6 @@ public class winScreen : MonoBehaviour
     public void goToMenu(){
         winScreenn.SetActive(false);
         StartMenu.SetActive(true);
+        SceneManager.LoadScene("scena1");
     }
 }

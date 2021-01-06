@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class startMenuScript : MonoBehaviour
@@ -37,6 +38,8 @@ public class startMenuScript : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenuScript.isPaused = false;
         healthText.SetActive(true);
+        
+
     }
 
     public void Menu(){
